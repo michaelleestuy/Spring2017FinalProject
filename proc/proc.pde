@@ -8,7 +8,7 @@ public void setup(){
   size(750, 750);
   for(int i = 0; i < 15; i++){
   	  for(int j = 0; j < 15; j++){
-	  	  if(stage[i][j].gettype == 0){
+	  	  if(stage[i][j].gettype() == 0){
 		  	stroke(204, 102, 0);
 		  	rect(50 * i, 50 * j, 50, 50);
 		  }
@@ -26,7 +26,7 @@ private void arrr(StageStuff[][] stage, String input){
 		Scanner inf = new Scanner(infile);
 		for(int i = 0; i < 15; i++){
 			for(int j = 0; j < 15; j++){
-				char a = inf.nextChar();
+				char a = inf.next().charAt(0);
 				if(a == '#')
 				     stage[i][j] = new Wall();
 				if(a == '.')
