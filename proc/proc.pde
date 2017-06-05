@@ -4,7 +4,7 @@ import java.io.*;
 public void setup(){
   StageStuff[][] stage = new StageStuff[15][15];
   ArrayList<Movers> movers = new ArrayList<Movers>();
-  arrr(stage, "mae.asdf");
+  arrr(stage, "mae.dat");
   size(750, 750);
   for(int i = 0; i < 15; i++){
   	  for(int j = 0; j < 15; j++){
@@ -35,7 +35,7 @@ private void arrr(StageStuff[][] stage, String input){
 		}		
 	}
 	catch(FileNotFoundException e){
-				    System.out.println("File not found");
+				    System.out.println("File not founda");
 				    System.exit(0);
 	}
 	
