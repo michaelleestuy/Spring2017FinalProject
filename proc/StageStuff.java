@@ -6,7 +6,10 @@ public abstract class StageStuff{
 	return board;
     }
 
-
+    public StageStuff(int xa, int ya){
+	x = xa;
+	y = ya;
+    }
 
 
 
