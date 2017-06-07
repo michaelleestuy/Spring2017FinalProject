@@ -5,11 +5,11 @@ import java.util.*;
 StageStuff[][]stage = new StageStuff[15][15];
 Pacman lom ;
 int dir;
-
+int counter;
 public void setup() {
-  frameRate(2);
+  frameRate(60);
   dir = 3;
-
+  counter = 0;
   lom = new Pacman();
 
 
@@ -57,22 +57,33 @@ public void draw() {
   if (stage[lom.x - 1][lom.y - 1].gettype() == 1) {
     stage[lom.x - 1][lom.y - 1] = new Blank();
   }
-
-
+  updateDir();
+  if (canMove() && counter >= 10) {
+    movepac();
+    counter = 0;
+  }
+  counter++; 
   update();
   lom.display();
-    if (canMove())
-    movepac();
+}
+
+public void updateDir() {
+  if (key == 'W' || key == 'w')
+    dir = 0;
+  else if (key == 'D' || key == 'd')
+    dir = 1;
+  else if (key == 'S' || key == 's')
+    dir = 2;
+  else if (key == 'A' || key == 'a')
+    dir = 3;
 }
 
 public void movepac() {
   if (dir == 0) {
     lom.y -= 1;
-  }
-  else if (dir == 1) {
+  } else if (dir == 1) {
     lom.x += 1;
-  }
-  else if (dir == 2) {
+  } else if (dir == 2) {
     lom.y += 1;
   } else {
     lom.x -= 1;
@@ -90,23 +101,5 @@ public boolean canMove() {
     return true;
   else {
     return false;
-  }
-}
-
-public void setdir(int d) {
-  if (d == 0) {
-    if (stage[lom.x][lom.y - 1].gettype() != 0)
-      dir = 0;
-  }
-  if (d == 1) {
-    if (stage[lom.x + 1][lom.y].gettype() != 0)
-      dir = 1;
-  }
-  if (d == 2) {
-    if (stage[lom.x][lom.y + 1].gettype() != 0)
-      dir = 2;
-  } else {
-    if (stage[lom.x - 1][lom.y].gettype() != 0)
-      dir = 3;
   }
 }
