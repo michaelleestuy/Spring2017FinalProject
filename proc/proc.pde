@@ -69,13 +69,13 @@ public void draw() {
 
 public void updateDir() {
   if (key == 'W' || key == 'w')
-    dir = 0;
+    setdir(0);
   else if (key == 'D' || key == 'd')
-    dir = 1;
+    setdir(1);
   else if (key == 'S' || key == 's')
-    dir = 2;
+    setdir(2);
   else if (key == 'A' || key == 'a')
-    dir = 3;
+    setdir(3);
 }
 
 public void movepac() {
@@ -103,3 +103,22 @@ public boolean canMove() {
     return false;
   }
 }
+
+
+public void setdir(int d) {
+  if (d == 0) {
+    if (stage[lom.x - 1][lom.y - 2].gettype() != 0)
+      dir = 0;
+  }
+  else if (d == 1) {
+    if (stage[lom.x][lom.y - 1].gettype() != 0)
+      dir = 1;
+  }
+  else if (d == 2) {
+    if (stage[lom.x - 1][lom.y].gettype() != 0)
+      dir = 2;
+  } else {
+    if (stage[lom.x - 2][lom.y - 1].gettype() != 0)
+      dir = 3;
+  }
+} 
