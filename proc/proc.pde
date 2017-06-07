@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 
-StageStuff[][]stage = new StageStuff[15][15];
+StageStuff[][]stage = new StageStuff[19][21];
 Pacman lom ;
 int dir;
 int counter;
@@ -13,10 +13,10 @@ public void setup() {
   lom = new Pacman();
 
 
-  size(750, 750);
+  size(1050, 1050);
   String line = "";
   BufferedReader reader = createReader("mae.txt");
-  for (int i  = 0; i < 15; i++) {
+  for (int i  = 0; i < 21; i++) {
     try {
       line = reader.readLine();
     }
@@ -27,7 +27,7 @@ public void setup() {
       noLoop();
     } else {
       String[]pieces = split(line, " ");
-      for (int j = 0; j < 15; j++) {
+      for (int j = 0; j < 19; j++) {
         if (pieces[j].equals("#")) {
           stage[j][i] = new Wall();
         } else {
@@ -40,8 +40,8 @@ public void setup() {
 
 public void update() {
   stroke(153);
-  for (int i = 0; i < 15; i++) {
-    for (int j = 0; j < 15; j++) {
+  for (int i = 0; i < 19; i++) {
+    for (int j = 0; j < 21; j++) {
       if (stage[i][j].gettype() == 0) {
         rect(50 * i, 50 * j, 50, 50);
       } else if (stage[i][j].gettype() == 1) {
@@ -93,9 +93,9 @@ public void movepac() {
 public boolean canMove() {
   if (dir == 0 && lom.y - 1 > 0 && stage[lom.x - 1][lom.y - 2].gettype() != 0)
     return true;
-  else if (dir == 1 && lom.x + 1 < 16 && stage[lom.x][lom.y - 1].gettype() != 0)
+  else if (dir == 1 && lom.x + 1 < 22 && stage[lom.x][lom.y - 1].gettype() != 0)
     return true;
-  else if (dir == 2 && lom.y + 1 < 16 && stage[lom.x - 1][lom.y].gettype() != 0)
+  else if (dir == 2 && lom.y + 1 < 22 && stage[lom.x - 1][lom.y].gettype() != 0)
     return true;
   else if (dir == 3 && lom.x - 1 > 0 && stage[lom.x - 2][lom.y - 1].gettype() != 0)
     return true;

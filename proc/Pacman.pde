@@ -3,8 +3,8 @@ public class Pacman {
   public int shape; //0 = pacman, 1 = ghost
 
   public Pacman() {
-    x = 7;
-    y = 7;
+    x = 2;
+    y = 2;
     shape = 0;
   }
 
