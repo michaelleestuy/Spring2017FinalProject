@@ -1,6 +1,6 @@
-public class Food extends StageStuff{
+public class Food extends StageStuff {
 
-
-
-
+  public Food() {
+    settype(1);
+  }
 }
