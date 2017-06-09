@@ -57,7 +57,8 @@ public void draw() {
   if (stage[lom.x - 1][lom.y - 1].gettype() == 1) {
     stage[lom.x - 1][lom.y - 1] = new Blank();
   }
-  updateDir();
+  if (keyPressed)
+    updateDir();
   if (canMove() && counter >= 10) {
     movepac();
     counter = 0;
@@ -109,12 +110,10 @@ public void setdir(int d) {
   if (d == 0) {
     if (stage[lom.x - 1][lom.y - 2].gettype() != 0)
       dir = 0;
-  }
-  else if (d == 1) {
+  } else if (d == 1) {
     if (stage[lom.x][lom.y - 1].gettype() != 0)
       dir = 1;
-  }
-  else if (d == 2) {
+  } else if (d == 2) {
     if (stage[lom.x - 1][lom.y].gettype() != 0)
       dir = 2;
   } else {
