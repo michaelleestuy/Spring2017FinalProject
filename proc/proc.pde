@@ -6,12 +6,13 @@ StageStuff[][]stage = new StageStuff[19][21];
 Pacman lom ;
 int dir;
 int counter;
+Ghost ghost1;
 public void setup() {
   frameRate(60);
   dir = 3;
   counter = 0;
   lom = new Pacman();
-
+  ghost1 = new Ghost(5, 5);
 
   size(1050, 1050);
   String line = "";
@@ -51,6 +52,39 @@ public void update() {
   }
 }
 
+
+
+public boolean checkDeath() {
+  return (lom.x == ghost1.x && lom.y == ghost1.y);
+}
+
+public void ghostRandom() {
+  // ghost1;
+  ArrayList<Integer> dirs = new ArrayList<Integer>();
+  if (ghost1.y - 1 > 0 && stage[ghost1.x - 1][ghost1.y - 2].gettype() != 0)
+    dirs.add(0);
+  if (ghost1.x + 1 < 22 && stage[ghost1.x][ghost1.y - 1].gettype() != 0)
+    dirs.add(1);
+  if (ghost1.y + 1 < 22 && stage[ghost1.x - 1][ghost1.y].gettype() != 0) 
+    dirs.add(2);
+  if (ghost1.x - 1 > 0 && stage[ghost1.x - 2][ghost1.y - 1].gettype() != 0)
+    dirs.add(3);
+
+  if (dirs.size() == 0)
+    return;
+  else {
+    int i = dirs.get((new Random()).nextInt(dirs.size()));
+    if (i == 0)
+      ghost1.y -= 1;
+    else if (i == 1)
+      ghost1.x += 1;
+    else if (i == 2)
+      ghost1.y += 1;
+    else if (i == 3)
+      ghost1.x -= 1;
+  }
+}
+
 public void draw() {
   background(0);
 
@@ -59,13 +93,30 @@ public void draw() {
   }
   if (keyPressed)
     updateDir();
-  if (canMove() && counter >= 10) {
-    movepac();
+  if (counter >= 10) {
+    if (canMove())
+      movepac();
+    if ( checkDeath()) {
+      noLoop();
+      update();
+      lom.display();
+      ghost1.display();
+      return;
+    }
+    ghostRandom();
+    if (checkDeath()) {
+      noLoop();
+      update();
+      lom.display();
+      ghost1.display();
+      return;
+    }
     counter = 0;
   }
   counter++; 
   update();
   lom.display();
+  ghost1.display();
 }
 
 public void updateDir() {
