@@ -7,13 +7,14 @@ Pacman lom ;
 int dir;
 int counter;
 Ghost ghost1;
+Ghost ghost2;
 public void setup() {
   frameRate(60);
   dir = 3;
   counter = 0;
   lom = new Pacman();
   ghost1 = new Ghost(5, 5);
-
+  ghost2 = new Ghost(5, 6);
   size(1050, 1050);
   String line = "";
   BufferedReader reader = createReader("mae.txt");
@@ -56,6 +57,11 @@ public void update() {
 
 public boolean checkDeath() {
   return (lom.x == ghost1.x && lom.y == ghost1.y);
+}
+
+public void ghostTrack(){
+    
+  
 }
 
 public void ghostRandom() {
@@ -101,6 +107,7 @@ public void draw() {
       update();
       lom.display();
       ghost1.display();
+      ghost2.display();
       return;
     }
     ghostRandom();
@@ -109,6 +116,7 @@ public void draw() {
       update();
       lom.display();
       ghost1.display();
+      ghost2.display();
       return;
     }
     counter = 0;
@@ -117,6 +125,7 @@ public void draw() {
   update();
   lom.display();
   ghost1.display();
+  ghost2.display();
 }
 
 public void updateDir() {
