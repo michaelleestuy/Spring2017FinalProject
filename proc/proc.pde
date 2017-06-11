@@ -146,8 +146,11 @@ public void draw() {
     stage[lom.x - 1][lom.y - 1] = new Blank();
     score += 100;
   }
+
+
   if (keyPressed)
     updateDir();
+
   if (counter >= 10) {
     if (canMove())
       movepac();
@@ -184,6 +187,19 @@ public void draw() {
     }
     counter = 0;
   }
+
+  if (score >= 18800) {
+    noLoop(); 
+    update();
+    lom.display();
+    ghost1.display();
+    ghost2.display();
+    textSize(200);
+    fill(0, 102, 153);
+    text("You won", 100, 400);
+    return;
+  }
+
   counter++; 
   update();
   lom.display();
