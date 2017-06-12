@@ -1,6 +1,5 @@
 public class Ghost {
   public int x, y;
-  public int shape; //0 = pacman, 1 = ghost
   public int c;
 
   public Ghost(int xx, int yy, int co) {
