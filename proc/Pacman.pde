@@ -10,7 +10,8 @@ public class Pacman {
 
   public void display() {
     if (shape == 0) {
-      stroke(204, 102, 0);
+      stroke(255, 238, 0);
+      fill(255, 238, 0);
       ellipse(x * 50 - 25, y * 50 - 25, 48, 48);
     }
   }
