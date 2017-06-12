@@ -113,7 +113,7 @@ public boolean checkDeath(boolean a) {
 
 public void ghostTrack() { //ghost2
   if (!move2)
-    returna;
+    return;
 
   ArrayList<Integer> dirs = new ArrayList<Integer>();
   if (ghost2.y - 1 > 0 && stage[ghost2.x - 1][ghost2.y - 2].gettype() != 0)
