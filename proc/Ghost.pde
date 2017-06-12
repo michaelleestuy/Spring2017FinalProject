@@ -6,7 +6,6 @@ public class Ghost {
     x = xx;
     y = yy;
     c = co;
-    shape = 0;
   }
 
   public void display(int i) {
@@ -18,21 +17,20 @@ public class Ghost {
   }
 
   public void display(boolean a, boolean b) {
-    if (shape == 0) {
-      if (c == 0) {
-        stroke(255, 0, 0);
-        fill(255, 0, 0);
-      }
-      if (c == 1) {
-        stroke(0, 255, 255);
-        fill(0, 255, 255);
-      }
-      if (c == 2) {
-        stroke(255, 192, 203);
-        fill(255, 192, 203);
-      }
-      ellipse(x * 50 - 25, y * 50 - 25, 40, 40);
+
+    if (c == 0) {
+      stroke(255, 0, 0);
+      fill(255, 0, 0);
     }
+    if (c == 1) {
+      stroke(0, 255, 255);
+      fill(0, 255, 255);
+    }
+    if (c == 2) {
+      stroke(255, 192, 203);
+      fill(255, 192, 203);
+    }
+    ellipse(x * 50 - 25, y * 50 - 25, 40, 40);
   }
 
   public void display(boolean i) {
