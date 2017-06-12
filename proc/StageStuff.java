@@ -1,28 +1,22 @@
-public abstract class StageStuff{
-    public int x, y;
-    private Board board;
-    private int type;
-    public Board getBoard(){
-	return board;
-    }
+public abstract class StageStuff {
+  public int x, y;
 
-    public StageStuff(){
+  private int type;
 
 
-    }
-    
-    public StageStuff(int xa, int ya){
-	x = xa;
-	y = ya;
-    }
+  public StageStuff() {
+  }
 
-    public void settype(int i){
-	type = i;
-    }
+  public StageStuff(int xa, int ya) {
+    x = xa;
+    y = ya;
+  }
 
-    public int gettype(){
-	return type;
-    }
+  public void settype(int i) {
+    type = i;
+  }
 
-
+  public int gettype() {
+    return type;
+  }
 }

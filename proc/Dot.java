@@ -1,14 +1,6 @@
-public class Dot extends StageStuff{
+public class Dot extends StageStuff {
 
-    public Dot(){
-	settype(1);
-    }
-
-
-
-
-
-
-
-
+  public Dot() {
+    settype(1);
+  }
 }

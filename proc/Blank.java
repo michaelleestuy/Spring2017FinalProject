@@ -1,7 +1,6 @@
-public class Blank extends StageStuff{
+public class Blank extends StageStuff {
 
-    public Blank(){
-	settype(2);
-    }
-
+  public Blank() {
+    settype(2);
+  }
 }
